@@ -1,0 +1,14 @@
+{
+  "login": {
+    "email": "What is your email address?",
+    "password": "What is your password?"
+  },
+  "register": {
+    "firstName": "What is your first name?",
+    "lastName": "What is your last name?",
+    "welcome": "Welcome, {{firstName}}"
+  },
+  "help": {
+    "test": "Hey {{firstName}}, you can reach us at {{phoneNumber}}."
+  }
+}
