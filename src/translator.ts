@@ -24,11 +24,20 @@ interface TranslatorProps {
 
 export function Translator({ children, replacements }: TranslatorProps) {
   const { currentLanguage } = useContext<LanguageContext>(languageContext);
-  let text = get(currentLanguage, children, children);
+  let text;
+  if (typeof currentLanguage === 'string') {
+    text = currentLanguage;
+  } else {
+    text = get(currentLanguage, children, children);
+  }
 
   if (replacements) {
     text = replace(text, replacements);
   }
 
   return text;
+}
+
+export function t(path: string, replacements: Replacements | null = null): string {
+ return Translator({ children: path, replacements });
 }

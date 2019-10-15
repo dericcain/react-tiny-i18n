@@ -6,14 +6,22 @@ import { Languages } from '../.';
 import * as en from './languages/en.json'
 import * as fr from './languages/fr.json'
 import { Home } from './home';
+import { Code } from './code';
 
 const languages = { en, fr };
 
 const App = () => {
   return (
-    <Languages languages={languages} defaultLanguage="en">
-      <Home />
-    </Languages>
+    <div className="columns">
+      <div className="column">
+        <Languages languages={languages} defaultLanguage="en">
+          <Home />
+        </Languages>
+      </div>
+      <div className="column">
+        <Code />
+      </div>
+    </div>
   );
 };
 

@@ -10,6 +10,8 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
+    "build:docs": "yarn --cwd example build",
+    "coveralls": "npm run test -- --coverage && cat ./coverage/lcov.info | coveralls",
     "test": "tsdx test --env=jsdom",
     "lint": "tsdx lint"
   },
@@ -18,7 +20,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint",
+      "pre-push": "npm run build:docs && git add docs"
     }
   },
   "prettier": {
@@ -31,6 +34,7 @@
     "@types/jest": "^24.0.18",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
+    "coveralls": "^3.0.7",
     "husky": "^3.0.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
