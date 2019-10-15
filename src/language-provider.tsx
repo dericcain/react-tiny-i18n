@@ -4,12 +4,10 @@ interface Language {
   [key: string]: string | Language;
 }
 
-type MapType<T> = keyof T;
-
 export interface LanguageContext {
   languages: Language;
-  currentLanguageKey: MapType<Language>;
-  currentLanguage: Language;
+  currentLanguageKey: string;
+  currentLanguage: Language | string;
   setCurrentLanguage: (language: string) => void;
   availableLanguages: string[];
 }
@@ -23,7 +21,7 @@ const { Provider } = languageContext;
 interface LanguageProviderProps {
   children: React.ReactNode;
   languages: Language;
-  defaultLanguage: MapType<Language>;
+  defaultLanguage: string;
 }
 
 export const Languages: React.FC<LanguageProviderProps> = ({
@@ -31,15 +29,14 @@ export const Languages: React.FC<LanguageProviderProps> = ({
   languages,
   defaultLanguage,
 }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<MapType<Language>>(
+  const [currentLanguage, setCurrentLanguage] = useState<string>(
     defaultLanguage
   );
 
   const value: LanguageContext = {
     languages,
     currentLanguageKey: currentLanguage,
-    // @ts-ignore
-    currentLanguage: languages[currentLanguage],
+    currentLanguage: typeof languages == 'object' ? languages[currentLanguage] : languages,
     setCurrentLanguage,
     availableLanguages: Object.keys(languages),
   };

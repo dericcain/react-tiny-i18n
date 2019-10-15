@@ -1,12 +1,12 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { t, T, Switcher } from "..";
+import { t, T, Switcher } from '..';
 
 const Foo = () => {
   // We can use this as a function and not just a React Component
-  const text = t({
-    children: "help.test",
-    replacements: { firstName: "Debo", phoneNumber: "205.555.1234" }
+  const text = t('help.test', {
+    firstName: 'Debo',
+    phoneNumber: '205.555.1234',
   });
   return (
     <div>
@@ -30,7 +30,7 @@ export function Home() {
         <T>login.password</T>
       </p>
       <p>
-        <T replacements={{ firstName: "Deric" }}>register.welcome</T>
+        <T replacements={{ firstName: 'Deric' }}>register.welcome</T>
       </p>
       <p>
         <T>register.firstName</T>
@@ -39,9 +39,12 @@ export function Home() {
         <T>register.lastName</T>
       </p>
       <p>
-        <T replacements={{ firstName: "Debo", phoneNumber: "205.555.1234" }}>
+        <T replacements={{ firstName: 'Debo', phoneNumber: '205.555.1234' }}>
           help.test
         </T>
+      </p>
+      <p>
+        <T>this.key.does.not.exit</T>
       </p>
     </div>
   );

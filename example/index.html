@@ -6,7 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Playground</title>
   </head>
-
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      padding: 0;
+      margin: 0;
+    }
+    .columns {
+      display: flex;
+      height: 100vh;
+    }
+    .column {
+      flex: 6;
+      overflow-x: auto;
+    }
+    .column:first-of-type {
+      padding: 24px;
+      max-height: 90vh;
+      flex: 4;
+    }
+    .link {
+      position: fixed;
+      bottom: 48px;
+      left: 48px;
+    }
+  </style>
   <body>
     <div id="root"></div>
     <script src="./index.tsx"></script>

@@ -5,10 +5,11 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html -d ../docs --public-url '.'"
   },
   "dependencies": {
-    "react-app-polyfill": "^1.0.0"
+    "react-app-polyfill": "^1.0.0",
+    "prismjs": "latest"
   },
   "alias": {
     "react": "../node_modules/react",
