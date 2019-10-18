@@ -10,3 +10,4 @@
 
 ## Demo
 See a demo here: [https://dericgw.github.io/react-tiny-i18n/](https://dericgw.github.io/react-tiny-i18n/)
+

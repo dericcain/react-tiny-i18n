@@ -39,6 +39,7 @@ describe('i18n', () => {
       await findByText(/bar/i);
       expect(await findByText(/foo/i)).toHaveTextContent(new RegExp(name, 'i'));
 
+      // TODO: Test the Switcher component here
       // fireEvent.click(await findByText(/fr/i), { target: { value: 'fr' } });
       // expect(await findByText(/fot/i)).toHaveTextContent(new RegExp(name, 'i'));
     });
