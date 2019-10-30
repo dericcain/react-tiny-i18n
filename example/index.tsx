@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Languages } from '../.';
+import { Languages } from '../src';
 import * as en from './languages/en.json'
 import * as fr from './languages/fr.json'
 import { Home } from './home';

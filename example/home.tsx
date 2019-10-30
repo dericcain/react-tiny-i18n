@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { t, T, Switcher } from '..';
+import { t, T, Switcher } from '../src';
 
 const Foo = () => {
   // We can use this as a function and not just a React Component
