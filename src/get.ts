@@ -1,8 +1,4 @@
-export function get(
-  obj: { [k: string]: any },
-  path: string,
-  defaultValue: any = path
-): any {
+export function get(obj: { [k: string]: any }, path: string, defaultValue: any = path): any {
   const pathArray = path.split('.');
 
   let index = 0;

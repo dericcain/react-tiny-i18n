@@ -4,7 +4,7 @@ import { languageContext } from './language-provider';
 
 export function Switcher(props: any) {
   const { currentLanguageKey, setCurrentLanguage, availableLanguages } = useContext(
-    languageContext
+    languageContext,
   );
 
   function onChange(e: React.FormEvent<HTMLSelectElement>) {

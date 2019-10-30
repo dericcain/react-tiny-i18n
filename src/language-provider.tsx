@@ -12,9 +12,7 @@ export interface LanguageContext {
   availableLanguages: string[];
 }
 
-export const languageContext = createContext<LanguageContext>(
-  {} as LanguageContext
-);
+export const languageContext = createContext<LanguageContext>({} as LanguageContext);
 
 const { Provider } = languageContext;
 
@@ -29,9 +27,7 @@ export const Languages: React.FC<LanguageProviderProps> = ({
   languages,
   defaultLanguage,
 }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<string>(
-    defaultLanguage
-  );
+  const [currentLanguage, setCurrentLanguage] = useState<string>(defaultLanguage);
 
   const value: LanguageContext = {
     languages,

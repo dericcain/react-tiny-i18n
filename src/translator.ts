@@ -19,7 +19,7 @@ interface Replacements {
 
 interface TranslatorProps {
   children: string;
-  replacements?: Replacements | null
+  replacements?: Replacements | null;
 }
 
 export function Translator({ children, replacements }: TranslatorProps) {
@@ -39,5 +39,5 @@ export function Translator({ children, replacements }: TranslatorProps) {
 }
 
 export function t(path: string, replacements: Replacements | null = null): string {
- return Translator({ children: path, replacements });
+  return Translator({ children: path, replacements });
 }
