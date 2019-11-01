@@ -19,12 +19,27 @@ interface Replacements {
 
 interface TranslatorProps {
   children: string;
-  replacements?: Replacements | null;
+  replacements?: Replacements;
 }
 
-export function Translator({ children, replacements }: TranslatorProps) {
+interface InterpolationCache {
+  [key: string]: string;
+}
+
+const cache: InterpolationCache = {};
+
+export function Translator({ children, replacements = {} }: TranslatorProps) {
   const { currentLanguage } = useContext<LanguageContext>(languageContext);
   let text;
+
+  const key = `${children}.${Object.values(replacements).join('.')}`;
+
+  if (key in cache) {
+    console.log('Found in cache', cache);
+    return cache[key];
+  }
+
+  // This allows nesting keys deeper than one level
   if (typeof currentLanguage === 'string') {
     text = currentLanguage;
   } else {
@@ -35,9 +50,15 @@ export function Translator({ children, replacements }: TranslatorProps) {
     text = replace(text, replacements);
   }
 
+  if (text !== children) {
+    cache[key] = text;
+    console.log('The cache', cache);
+  }
+
   return text;
 }
 
-export function t(path: string, replacements: Replacements | null = null): string {
+// Create a way to use the translator outside of a React component
+export function t(path: string, replacements: Replacements = {}): string {
   return Translator({ children: path, replacements });
 }

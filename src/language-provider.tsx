@@ -27,13 +27,13 @@ export const Languages: React.FC<LanguageProviderProps> = ({
   languages,
   defaultLanguage,
 }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<string>(defaultLanguage);
+  const [currentLanguageKey, setCurrentLanguageKey] = useState<string>(defaultLanguage);
 
   const value: LanguageContext = {
     languages,
-    currentLanguageKey: currentLanguage,
-    currentLanguage: typeof languages == 'object' ? languages[currentLanguage] : languages,
-    setCurrentLanguage,
+    currentLanguageKey: currentLanguageKey,
+    currentLanguage: typeof languages == 'object' ? languages[currentLanguageKey] : languages,
+    setCurrentLanguage: setCurrentLanguageKey,
     availableLanguages: Object.keys(languages),
   };
 
