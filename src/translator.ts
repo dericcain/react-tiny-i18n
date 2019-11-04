@@ -35,7 +35,6 @@ export function Translator({ children, replacements = {} }: TranslatorProps) {
   const key = `${children}.${Object.values(replacements).join('.')}`;
 
   if (key in cache) {
-    console.log('Found in cache', cache);
     return cache[key];
   }
 
@@ -52,7 +51,6 @@ export function Translator({ children, replacements = {} }: TranslatorProps) {
 
   if (text !== children) {
     cache[key] = text;
-    console.log('The cache', cache);
   }
 
   return text;
