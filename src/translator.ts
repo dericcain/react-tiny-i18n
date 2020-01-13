@@ -7,7 +7,7 @@ function replace(string: string, replacements: { [k: string]: string }) {
   let newString = string;
 
   Object.keys(replacements).forEach(key => {
-    newString = newString.replace(`{{${key}}}`, replacements[key]);
+    newString = newString.replace(new RegExp(`{{${key}}}`, 'gm'), replacements[key]);
   });
 
   return newString;

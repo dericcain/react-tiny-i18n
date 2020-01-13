@@ -11,13 +11,13 @@ describe('i18n', () => {
       en: {
         home: {
           foo: 'bar',
-          baz: 'foo {{name}}',
+          baz: 'foo {{name}} {{name}}',
         },
       },
       fr: {
         home: {
           foo: 'bah',
-          baz: 'fot {{name}}',
+          baz: 'fot {{name}} {{name}}',
         },
       },
     };

@@ -1,7 +1,7 @@
 {
   "name": "react-tiny-i18n",
   "description": "A tiny (~500B) i18n implementation for handling translations in React",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "license": "MIT",
   "author": "Deric Cain <deric.cain@gmail.com>",
   "main": "dist/index.js",
